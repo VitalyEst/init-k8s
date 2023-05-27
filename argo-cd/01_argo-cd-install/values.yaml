@@ -1,0 +1,27 @@
+argo-cd:
+  configs:
+    clusterCredentials: []
+    repositories:
+      init-repo:
+        url: https://github.com/VitalyEst/init-k8s.git
+        name: init-k8s-repo
+        type: git
+      # istio-helm-repo:
+      #   url: https://storage.googleapis.com/istio-prerelease/daily-build/master-latest-daily/charts
+      #   name: istio.io
+      #   type: helm
+      # private-helm-repo:
+      #   url: https://my-private-chart-repo.internal
+      #   name: private-repo
+      #   type: helm
+      #   password: my-password
+      #   username: my-username
+      # private-repo:
+      #   url: https://github.com/argoproj/private-repo
+    resources:
+     limits:
+       cpu: 500m
+       memory: 512Mi
+     requests:
+       cpu: 250m
+       memory: 256Mi

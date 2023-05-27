@@ -1,0 +1,40 @@
+ingress-nginx:
+  controller:
+    kind: DaemonSet
+    watchIngressWithoutClass: true
+    metrics:
+      port: 10254
+      portName: metrics
+      enabled: true
+      serviceMonitor:
+        enabled: false
+        additionalLabels: {}
+        namespace: ""
+        namespaceSelector: {}
+        scrapeInterval: 30s
+        targetLabels: []
+        relabelings: []
+        metricRelabelings: []
+      prometheusRule:
+        enabled: false
+        additionalLabels: {}
+        rules: []
+    service:
+      externalTrafficPolicy: Local
+      enabled: true
+      enableHttp: true
+      enableHttps: true
+      ipFamilyPolicy: "SingleStack"
+      ipFamilies:
+        - IPv4
+      ports:
+        http: 80
+        https: 443
+      targetPorts:
+        http: http
+        https: https
+      type: LoadBalancer
+      internal:
+        enabled: false
+  defaultBackend:
+    enabled: true

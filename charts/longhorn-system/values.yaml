@@ -1,0 +1,15 @@
+
+# Prometheus servicemonitor configuration
+serviceMonitor:
+  enable: true
+  release: monitoring
+
+#####################
+# longhorn subchart
+#####################
+
+longhorn:
+  defaultSettings:
+    defaultDataPath: "/storage"
+
+

@@ -1,0 +1,33 @@
+gitops:
+  repo: https://github.com/VitalyEst/init-k8s.git
+  revision: master
+  kubeapi: https://kubernetes.default.svc
+
+# List of application corresponding to different sync waves
+apps:
+  - name: ingress-nginx
+    enabled: false
+    namespace: kube-ingress
+    path: charts/ingress-nginx
+    syncWave: 1
+  - name: cert-manager
+    enabled: true
+    namespace: cert-manager
+    path: charts/cert-manager
+    syncWave: 2
+  - name: external-secrets
+    enabled: true
+    namespace: external-secrets
+    path: charts/external-secrets
+    syncWave: 3
+  - name: longhorn
+    enabled: true
+    namespace: longhorn-system
+    path: charts/longhorn-system
+    syncWave: 4
+
+  #   # Argo CD App
+  # - name: argocd
+  #   namespace: argocd
+  #   path: bootstrap-system/argocd
+  #   syncWave: 16

@@ -39,8 +39,8 @@ spec:
             - (name): "*"
               resources:
                 requests:
-                  +(memory): "100Mi"
+                  +(memory): "192Mi"
                   +(cpu): "100m"
                 limits:
-                  +(memory): "100Mi"
-                  +(cpu): "100m"
+                  +(memory): "256Mi"
+                  +(cpu): "300m"

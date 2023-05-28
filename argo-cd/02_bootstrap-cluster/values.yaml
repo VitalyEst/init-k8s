@@ -10,22 +10,53 @@ apps:
     namespace: kube-ingress
     path: charts/ingress-nginx
     syncWave: 1
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - ApplyOutOfSyncOnly=true
   - name: cert-manager
     enabled: true
     namespace: cert-manager
     path: charts/cert-manager
     syncWave: 2
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - ApplyOutOfSyncOnly=true
   - name: external-secrets
     enabled: true
     namespace: external-secrets
     path: charts/external-secrets
     syncWave: 3
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - ApplyOutOfSyncOnly=true
   - name: longhorn
-    enabled: true
+    enabled: false
     namespace: longhorn-system
     path: charts/longhorn-system
     syncWave: 4
-
+    syncOptions:
+      - CreateNamespace=true
+      - ServerSideApply=true
+      - ApplyOutOfSyncOnly=true
+  - name: kyverno
+    enabled: true
+    namespace: kyverno
+    path: charts/kyverno
+    syncWave: 5
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+  - name: kyverno-policy
+    enabled: true
+    namespace: kyverno
+    path: charts/kyverno-policy
+    syncWave: 6
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
   #   # Argo CD App
   # - name: argocd
   #   namespace: argocd

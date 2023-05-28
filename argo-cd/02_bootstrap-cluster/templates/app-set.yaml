@@ -32,8 +32,6 @@ spec:
         maxDuration: 16m
         factor: 2
     syncOptions:
-    - CreateNamespace=true
-    - ServerSideApply=true
-    - ApplyOutOfSyncOnly=true
+{{ toYaml $app.syncOptions | indent 6  }}
 {{- end }}
 {{- end }}

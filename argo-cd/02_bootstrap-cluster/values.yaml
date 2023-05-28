@@ -1,6 +1,6 @@
 gitops:
   repo: https://github.com/VitalyEst/init-k8s.git
-  revision: master
+  revision: main
   kubeapi: https://kubernetes.default.svc
 
 # List of application corresponding to different sync waves

@@ -30,6 +30,6 @@ spec:
       data:
         spec:
           hard:
-            requests.cpu: '3'
-            requests.memory: '6Gi'
+            requests.cpu: '6'
+            requests.memory: '15Gi'
             

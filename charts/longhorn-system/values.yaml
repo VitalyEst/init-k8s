@@ -10,6 +10,13 @@ serviceMonitor:
 
 longhorn:
   defaultSettings:
+    defaultReplicaCount: 2
+    replicaAutoBalance: best-effort
+    replicaSoftAntiAffinity: false
+    allowVolumeCreationWithDegradedAvailability: false
     defaultDataPath: "/storage"
-
-
+    guaranteedEngineManagerCPU: 20
+    guaranteedReplicaManagerCPU: 20
+    priorityClass: high-priority
+  persistence:
+    defaultClassReplicaCount: 2

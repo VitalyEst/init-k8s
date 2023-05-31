@@ -23,11 +23,27 @@ apps:
       - CreateNamespace=true
       - ServerSideApply=true
       - ApplyOutOfSyncOnly=true
+  - name: kyverno
+    enabled: true
+    namespace: kyverno
+    path: charts/kyverno
+    syncWave: 3
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
+  - name: kyverno-policy
+    enabled: true
+    namespace: kyverno
+    path: charts/kyverno-policy
+    syncWave: 4
+    syncOptions:
+      - CreateNamespace=true
+      - Replace=true
   - name: external-secrets
     enabled: true
     namespace: external-secrets
     path: charts/external-secrets
-    syncWave: 3
+    syncWave: 5
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
@@ -36,27 +52,21 @@ apps:
     enabled: false
     namespace: longhorn-system
     path: charts/longhorn-system
-    syncWave: 4
+    syncWave: 6
     syncOptions:
       - CreateNamespace=true
       - ServerSideApply=true
       - ApplyOutOfSyncOnly=true
-  - name: kyverno
-    enabled: true
-    namespace: kyverno
-    path: charts/kyverno
-    syncWave: 5
+  - name: victoria-metrics-k8s-stack
+    enabled: false
+    namespace: kube-metrics
+    path: charts/victoria-metrics-k8s-stack
+    syncWave: 7
     syncOptions:
       - CreateNamespace=true
-      - Replace=true
-  - name: kyverno-policy
-    enabled: true
-    namespace: kyverno
-    path: charts/kyverno-policy
-    syncWave: 6
-    syncOptions:
-      - CreateNamespace=true
-      - Replace=true
+      - ServerSideApply=true
+      - ApplyOutOfSyncOnly=true
+
   #   # Argo CD App
   # - name: argocd
   #   namespace: argocd

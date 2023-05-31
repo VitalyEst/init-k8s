@@ -1,0 +1,38 @@
+victoria-metrics-k8s-stack:
+  fullnameOverride: "victoria"
+  vmsingle:
+    enabled: true
+    spec:
+      retentionPeriod: "3"
+      storage:
+        accessModes:
+          - ReadWriteOnce
+        resources:
+          requests:
+            storage: 1Gi
+
+  vmcluster:
+    enabled: false
+
+  grafana:
+    enabled: true
+    defaultDashboardsTimezone: browser
+    ingress:
+      enabled: true
+      annotations:
+        cert-manager.io/issuer: issuer
+        cert-manager.io/issuer-kind: Issuer
+        kubernetes.io/ingress.class: nginx
+      path: /
+      pathType: Prefix
+      hosts:
+        - gf.k.derkeg.ru
+      tls:
+      - secretName: grafana-ingress-tls
+        hosts:
+          - gf.k.derkeg.ru
+
+  victoria-metrics-operator:
+    operator:
+      disable_prometheus_converter: false
+

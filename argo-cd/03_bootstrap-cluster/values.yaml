@@ -49,7 +49,7 @@ apps:
       - ServerSideApply=true
       - ApplyOutOfSyncOnly=true
   - name: longhorn
-    enabled: false
+    enabled: true
     namespace: longhorn-system
     path: charts/longhorn-system
     syncWave: 6

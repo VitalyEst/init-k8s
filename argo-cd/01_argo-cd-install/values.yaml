@@ -6,6 +6,10 @@ argo-cd:
         url: https://github.com/VitalyEst/init-k8s.git
         name: init-k8s-repo
         type: git
+      blocked-chart:
+        url: https://github.com/VitalyEst/blocked-chart.git
+        name: blocked-chart-repo
+        type: git
       # istio-helm-repo:
       #   url: https://storage.googleapis.com/istio-prerelease/daily-build/master-latest-daily/charts
       #   name: istio.io

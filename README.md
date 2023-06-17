@@ -3,6 +3,10 @@
 ```shell
 helm dependency build argo-cd/01_argo-cd-install/
 helm upgrade --install -n argo-cd --create-namespace argo-cd argo-cd/01_argo-cd-install/
+
+helm dependency build argo-cd/02_argocd-image-updater/
+helm upgrade --install -n argo-cd --create-namespace argocd-image-updater argo-cd/02_argocd-image-updater/
+
 ```
 
 ### Install services
@@ -10,7 +14,7 @@ helm upgrade --install -n argo-cd --create-namespace argo-cd argo-cd/01_argo-cd-
 Edit argo-cd/02_bootstrap-cluster/values.yaml (enabled service)
 
 ```shell
-helm upgrade --install -n argo-cd --create-namespace bootstrap-cluster argo-cd/02_bootstrap-cluster/
+helm upgrade --install -n argo-cd --create-namespace bootstrap-cluster argo-cd/03_bootstrap-cluster/
 ```
 
 ### View admin password and forward port GUI

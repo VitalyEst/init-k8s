@@ -1,0 +1,23 @@
+argocd-image-updater:
+  config:
+    argocd:
+      grpcWeb: false
+      serverAddress: "http://argo-cd-argocd-server"
+      insecure: true
+      plaintext: true
+  extraArgs:
+    - --interval
+    - 1m
+    - --max-concurrency
+    - "2"
+    # - --disable-kubernetes
+    # - --dry-run
+    # - --health-port
+    # - 8080
+    # - --kubeconfig
+    # - ~/.kube/config
+    # - --match-application-name
+    # - staging-*
+    # - --once
+    # - --registries-conf-path
+    # - /app/config/registries.conf
